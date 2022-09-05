@@ -1,0 +1,123 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="logs\**" />
+    <Content Remove="logs\**" />
+    <EmbeddedResource Remove="logs\**" />
+    <None Remove="logs\**" />
+    <TypeScriptCompile Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extension\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="media\" />
+    <Folder Include="wwwroot\content\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\..\stylecop.json" Link="stylecop.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>..\..\StyleCop.Ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Template\TemplateBudgetPdf.html" />
+  </ItemGroup>
+    <ItemGroup>
+	    <ContentWithTargetPath Include="wkhtmltox\v0.12.4\64bit\libwkhtmltox.dll">
+		    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		    <TargetPath>wkhtmltox\v0.12.4\64bit\libwkhtmltox.dll</TargetPath>
+	    </ContentWithTargetPath>
+	    <ContentWithTargetPath Include="wkhtmltox\v0.12.4\64bit\libwkhtmltox.dylib">
+		    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		    <TargetPath>wkhtmltox\v0.12.4\64bit\libwkhtmltox.dylib</TargetPath>
+	    </ContentWithTargetPath>
+	    <ContentWithTargetPath Include="wkhtmltox\v0.12.4\64bit\libwkhtmltox.so">
+		    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		    <TargetPath>wkhtmltox\v0.12.4\64bit\libwkhtmltox.so</TargetPath>
+	    </ContentWithTargetPath>
+	    <ContentWithTargetPath Include="wkhtmltox\v0.12.4\32bit\libwkhtmltox.dll">
+		    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		    <TargetPath>wkhtmltox\v0.12.4\32bit\libwkhtmltox.dll</TargetPath>
+	    </ContentWithTargetPath>
+	    <ContentWithTargetPath Include="wkhtmltox\v0.12.4\32bit\libwkhtmltox.dylib">
+		    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		    <TargetPath>wkhtmltox\v0.12.4\32bit\libwkhtmltox.dylib</TargetPath>
+	    </ContentWithTargetPath>
+	    <ContentWithTargetPath Include="wkhtmltox\v0.12.4\32bit\libwkhtmltox.so">
+		    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		    <TargetPath>wkhtmltox\v0.12.4\32bit\libwkhtmltox.so</TargetPath>
+	    </ContentWithTargetPath>
+    </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.5" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.18" />
+    <PackageReference Include="Hangfire.PostgreSql" Version="1.8.5" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="3.7.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.7.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.7.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="3.7.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.7.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.3.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.16.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Database\Garuda.Database.Ldap\Garuda.Database.Ldap.csproj" />
+    <ProjectReference Include="..\Database\Garuda.Database.PostgreSql\Garuda.Database.PostgreSql.csproj" />
+    <ProjectReference Include="..\Extension\Garuda.Extension\Garuda.Extension.csproj" />
+    <ProjectReference Include="..\Filestorage\Garuda.Filestorage.Abstract\Garuda.Filestorage.OneDrive.csproj" />
+    <ProjectReference Include="..\Infrastructure\Garuda.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules\Garuda.Modules.Auth\Garuda.Modules.Auth.csproj" />
+    <ProjectReference Include="..\Modules\Garuda.Modules.Common\Garuda.Modules.Common.csproj" />
+    <ProjectReference Include="..\Modules\Garuda.Modules.Email\Garuda.Modules.Email.csproj" />
+    <ProjectReference Include="..\Modules\Garuda.Modules.GoogleAp\Garuda.Modules.GoogleAp.csproj" />
+    <ProjectReference Include="..\Modules\Garuda.Modules.ProjectManagement\Garuda.Modules.ProjectManagement.csproj" />
+  </ItemGroup>
+
+
+</Project>

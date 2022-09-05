@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Garuda.Infrastructure.csproj" />
+    <ProjectReference Include="..\Garuda.Modules.Common\Garuda.Modules.Common.csproj" />
+    <ProjectReference Include="..\Garuda.Modules.Email\Garuda.Modules.Email.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dtos\Requests\" />
+    <Folder Include="Dtos\Responses\" />
+  </ItemGroup>
+
+</Project>

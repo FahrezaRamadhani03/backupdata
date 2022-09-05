@@ -1,0 +1,258 @@
+﻿
+@model Garuda.Modules.ProjectManagement.Dtos.InvoiceViewModel
+<!doctype html>
+<html>
+<head>
+    <style>
+        .invoice-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            font-size: 12px;
+            line-height: 24px;
+            font-family: 'Times New Roman';
+            color: #555;
+        }
+
+            .invoice-box table {
+                width: 100%;
+                line-height: inherit;
+                text-align: left;
+            }
+
+                .invoice-box table td {
+                    padding: 5px;
+                    vertical-align: top;
+                }
+
+                .invoice-box table tr td:nth-child(2) {
+                    text-align: left;
+                }
+
+                .invoice-box table tr.top table td {
+                    padding-bottom: 10px;
+                }
+
+                    .invoice-box table tr.top table td.title {
+                        font-size: 45px;
+                        line-height: 30px;
+                        color: #333;
+                    }
+
+                    .invoice-box table tr.top table td.ttd {
+                        padding: 40px;
+                        font-size: 45px;
+                        text-align: center;
+                    }
+
+                .invoice-box table tr.information table td {
+                    padding-bottom: 5px;
+                }
+
+                .invoice-box table tr.heading td {
+                    background: #eee;
+                    border: 1px solid black;
+                    font-weight: bold;
+                }
+
+                    .invoice-box table tr.heading td.qty {
+                        width: 15px;
+                    }
+
+                .invoice-box table tr.details td {
+                    padding-bottom: 5px;
+                }
+
+                .invoice-box table tr.item td {
+                    border: 1px solid black;
+                }
+
+                    .invoice-box table tr.item td.qty {
+                        width: 15px;
+                    }
+
+                .invoice-box table tr.item.last td {
+                    border-bottom: none;
+                }
+
+                .invoice-box table tr.total td:nth-child(2) {
+                    border-top: 2px solid #eee;
+                    font-weight: bold;
+                }
+    </style>
+</head>
+
+<body>
+    <div class="invoice-box">
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="6">
+                    <table>
+                        <tr>
+                            <td class="title" colspan="3">
+                                <img src="http://defacility.staging-gi.web.id/images/Sinar-mas.png" style="width: 100px;">
+                            </td>
+
+                            <td>
+                                <label style="font-weight:bold;font-size:14px">CV. GARUDA INFINITY KREASINDO</label><br>
+                                Jalan Sri Endah Raya No. 1<br>
+                                Bandung – Jawa Barat 40254<br>
+                                Email: info@garudainfinity.com
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="title">
+                <td colspan="6">
+                    <label style="font-weight:bold">INVOICE #1 “Development of Management IS for Accounting”</label>
+                </td>
+            </tr>
+            <tr class="information">
+                <td colspan="6">
+                    <table>
+                        <tr>
+                            <td>Invoice No</td>
+                            <td>: @Model.InvoiceNo</td>
+                            <td>Proposal No</td>
+                            <td>: @Model.ProposalNo</td>
+                        </tr>
+                        <tr>
+                            <td>Invoice Date</td>
+                            <td>: @Model.InvoiceDate.ToString("dd MMMM yyyy")</td>
+                            <td>Due Date</td>
+                            <td>: @Model.OverdueDate.ToString("dd MMMM yyyy")</td>
+                        </tr>
+                        <tr>
+                            <td>No. Kontrak</td>
+                            <td colspan="3">
+                                : @Model.GIKContractNo<br>
+                                &nbsp;&nbsp;@Model.ClientContractNo
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="6">
+                    <table>
+                        <tr>
+                            <td>From :</td>
+                            <td>To :</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                CV Garuda Infinity Kreasindo<br />
+                                Jalan Sriendah Raya No 1<br />
+                                Bandung
+                            </td>
+                            <td>
+                                @Model.Client<br />
+                                @Model.ClientAddress<br />
+                                @Model.ClientCity
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr class="heading">
+                <td class="qty">
+                    No
+                </td>
+                <td>
+                    Description
+                </td>
+                <td class="qty">
+                    Qyt
+                </td>
+                <td>
+                    Price
+                </td>
+                <td>
+                    Disc
+                </td>
+                <td>
+                    Amount
+                </td>
+            </tr>
+
+            @foreach (var detail in Model.InvoiceDetails)
+            {
+                <tr class="item">
+                    <td class="qty">
+                        @detail.No
+                    </td>
+                    <td>
+                        @detail.Description
+                    </td>
+                    <td class="qty">
+                        @detail.Quantity
+                    </td>
+                    <td>
+                        @detail.Price
+                    </td>
+                    <td>
+                        @detail.Discount
+                    </td>
+                    <td>
+                        @detail.Subtotal
+                    </td>
+                </tr>
+            }
+            <tr class="item">
+                <td colspan="2" ; rowspan="6"></td>
+                <td colspan="3">Subtotal</td>
+                <td>3000000</td>
+            </tr>
+            <tr class="item">
+                <td colspan="3">Discount</td>
+                <td>-300000</td>
+            </tr>
+            <tr class="item">
+                <td colspan="3">Discount Tambahan</td>
+                <td>-300000</td>
+            </tr>
+            <tr class="item">
+                <td colspan="3">PPN</td>
+                <td>300000</td>
+            </tr>
+            <tr class="item">
+                <td colspan="3">PPh 23</td>
+                <td>-300000</td>
+            </tr>
+            <tr class="item">
+                <td colspan="3">Total</td>
+                <td>@Model.TotalPayment</td>
+            </tr>
+
+            <tr class="title">
+                <td colspan="6">
+                    @Model.AdditionalNote
+                </td>
+            </tr>
+            <tr class="title">
+                <td colspan="6">
+                    <label style="font-weight:bold">NOTE :</label><br />
+                    Payment by bank transfer should be made to the bank details below<br />
+                    <label style="font-weight:bold">Bank Mandiri – KCP BKR Bandung</label><br />
+                    <label style="font-weight:bold">Account : Garuda Infinity Kreasindo</label><br />
+                    <label style="font-weight:bold">Account number : 130 00 3030 3021 </label><br />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                </td>
+                <td class="ttd" ; colspan="2">
+                    <label style="font-weight:bold">Yadhi Aditya Permana</label> <br />
+                    (Chief Operating Officer)
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
+    <PackageReference Include="EPPlus" Version="5.8.7" />
+    <PackageReference Include="IdentityModel" Version="6.0.0" />
+    <PackageReference Include="Innofactor.EfCoreJsonValueConverter" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="RestSharp" Version="108.0.1" />
+    <PackageReference Include="Spire.XLS" Version="12.5.3" />
+    <PackageReference Include="SpreadsheetLight" Version="3.5.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Database\Garuda.Database.Ldap\Garuda.Database.Ldap.csproj" />
+    <ProjectReference Include="..\..\Database\Garuda.Database.PostgreSql\Garuda.Database.PostgreSql.csproj" />
+    <ProjectReference Include="..\..\Extension\Garuda.Extension\Garuda.Extension.csproj" />
+    <ProjectReference Include="..\..\Filestorage\Garuda.Filestorage\Garuda.Filestorage.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Garuda.Infrastructure.csproj" />
+    <ProjectReference Include="..\Garuda.Modules.Common\Garuda.Modules.Common.csproj" />
+    <ProjectReference Include="..\Garuda.Modules.Email\Garuda.Modules.Email.csproj" />
+    <ProjectReference Include="..\Garuda.Modules.GoogleAp\Garuda.Modules.GoogleAp.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="..\..\..\stylecop.json" Link="stylecop.json" />
+	</ItemGroup>
+	<PropertyGroup>
+		<CodeAnalysisRuleSet>..\..\..\StyleCop.Ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+</Project>

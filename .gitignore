@@ -1,0 +1,16 @@
+.github
+.vscode
+.vs
+deploy.sh
+test.sh
+Test.bat
+reports
+coverage.opencover.xml
+/src/Host/appsettings.json
+/src/Host/credentials.json
+/src/Host/tokens.json
+bin
+obj
+logs/**
+logs/
+log/

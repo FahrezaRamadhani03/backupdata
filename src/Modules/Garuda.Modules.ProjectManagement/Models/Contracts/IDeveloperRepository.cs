@@ -1,0 +1,66 @@
+﻿// <copyright file="IDeveloperRepository.cs" company="CV Garuda Infinity Kreasindo">
+// Copyright (c) CV Garuda Infinity Kreasindo. All rights reserved.
+// </copyright>
+
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Garuda.Database.Abstract.Contracts;
+using Garuda.Modules.ProjectManagement.Models.Datas;
+
+namespace Garuda.Modules.ProjectManagement.Models.Contracts
+{
+    /// <summary>
+    /// Entity Group Contract Repository
+    /// </summary>
+    public interface IDeveloperRepository : IRepository
+    {
+        /// <summary>
+        /// Add or Update data to Table
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
+        Task AddOrUpdate(Developer model);
+
+        /// <summary>
+        /// Delete data from Table
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        Task Delete(Guid id);
+
+        /// <summary>
+        /// Get Data by Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="employeeId"></param>
+        /// <returns>A <see cref="Developer"/> representing the asynchronous operation.</returns>
+        Task<Developer> GetData(Guid id);
+
+        /// <summary>
+        /// Get Data by Id
+        /// </summary>
+        /// <param name="employeeId"></param>
+        /// <returns>A <see cref="Developer"/> representing the asynchronous operation.</returns>
+        Task<Developer> GetDataByEmployeeId(Guid employeeId);
+
+        /// <summary>
+        /// Get List Data Menu
+        /// </summary>
+        /// <returns>A <see cref="List{Developers}"/> representing the asynchronous operation.</returns>
+        Task<List<Developer>> GetData();
+
+        /// <summary>
+        /// Get List Data Menu
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <returns>A <see cref="List{Developers}"/> representing the asynchronous operation.</returns>
+        Task<List<Developer>> GetDataByClientId(int? clientId);
+
+        /// <summary>
+        /// Get List Data Menu
+        /// </summary>
+        /// <returns>A <see cref="List{Developers}"/> representing the asynchronous operation.</returns>
+        Task<List<Developer>> GetDataDevelopmentTeamAndProject();
+    }
+}
